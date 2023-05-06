@@ -1,71 +1,63 @@
+#include <stdio.h>
 #include "main.h"
 
-/*int main(void)
-{
-    int ret;
-    int pret;
+int main(void) {
+  long int lnum = 123456789;
+  long unsigned int luns_num = 987654321;
+  unsigned int uns_num = 456;
+  int neg_num = -789;
+  unsigned int hex_num = 0xABCDEF;
+  unsigned int oct_num = 01234567;
 
-    ret = _printf("# Octal: %#o\n", 42);
-    printf("Expected output: # Octal: 052\n");
-    printf("Actual output:   ");
-    pret = printf("# Octal: %#o\n", 42);
-    printf("\n");
-    if (ret != pret) {
-        printf("Error: expected return value of %d, got %d\n", pret, ret);
-    }
+  printf("l handler with i specifier:\n");
+  printf("printf: %li\n", lnum);
+  _printf("custom: %li\n", lnum);
+  printf("\n");
 
-    ret = _printf("# Hexadecimal: %#x\n", 0xabcdef);
-    printf("Expected output: # Hexadecimal: 0xabcdef\n");
-    printf("Actual output:   ");
-    pret = printf("# Hexadecimal: %#x\n", 0xabcdef);
-    printf("\n");
-    if (ret != pret) {
-        printf("Error: expected return value of %d, got %d\n", pret, ret);
-    }
+  printf("l handler with d specifier:\n");
+  printf("printf: %ld\n", lnum);
+  _printf("custom: %ld\n", lnum);
+  printf("\n");
 
-    ret = _printf("Positive: % d\n", 42);
-    printf("Expected output: Positive:  42\n");
-    printf("Actual output:   ");
-    pret = printf("Positive: % d\n", 42);
-    printf("\n");
-    if (ret != pret) {
-        printf("Error: expected return value of %d, got %d\n", pret, ret);
-    }
+  printf("l handler with u specifier:\n");
+  printf("printf: %lu\n", luns_num);
+  _printf("custom: %lu\n", luns_num);
+  printf("\n");
 
-    ret = _printf("Negative: % d\n", -42);
-    printf("Expected output: Negative: -42\n");
-    printf("Actual output:   ");
-    pret = printf("Negative: % d\n", -42);
-    printf("\n");
-    if (ret != pret) {
-        printf("Error: expected return value of %d, got %d\n", pret, ret);
-    }
+  printf("l handler with o specifier:\n");
+  printf("printf: %lo\n", lnum);
+  _printf("custom: %lo\n", lnum);
+  printf("\n");
 
-    ret = _printf("Positive: %+d\n", 42);
-    printf("Expected output: Positive: +42\n");
-    printf("Actual output:   ");
-    pret = printf("Positive: %+d\n", 42);
-    printf("\n");
-    if (ret != pret) {
-        printf("Error: expected return value of %d, got %d\n", pret, ret);
-    }
+  printf("l handler with x specifier:\n");
+  printf("printf: %lx\n", lnum);
+  _printf("custom: %lx\n", lnum);
+  printf("\n");
 
-    ret = _printf("Negative: %+d\n", -42);
-    printf("Expected output: Negative: -42\n");
-    printf("Actual output:   ");
-    pret = printf("Negative: %+d\n", -42);
-    printf("\n");
-    if (ret != pret) {
-        printf("Error: expected return value of %d, got %d\n", pret, ret);
-    }
+  printf("l handler with X specifier:\n");
+  printf("printf: %lX\n", lnum);
+  _printf("custom: %lX\n", lnum);
+  printf("\n");
 
-    return 0;
-}*/
+  printf("printf and custom _printf with u specifier:\n");
+  printf("printf: %u\n", uns_num);
+  _printf("custom: %u\n", uns_num);
+  printf("\n");
 
-int main(void)
-{
-    int long_num = -150;
-    printf("Test 3: %+++d\n", long_num);
-    _printf("Test 3: %+++d\n", long_num);
-    return 0;
+  printf("printf and custom _printf with d specifier and a negative number:\n");
+  printf("printf: %d\n", neg_num);
+  _printf("custom: %d\n", neg_num);
+  printf("\n");
+
+  printf("printf and custom _printf with x specifier and a hexadecimal value:\n");
+  printf("printf: %x\n", hex_num);
+  _printf("custom: %x\n", hex_num);
+  printf("\n");
+
+  printf("printf and custom _printf with o specifier and an octal value:\n");
+  printf("printf: %o\n", oct_num);
+  _printf("custom: %o\n", oct_num);
+  printf("\n");
+
+  return 0;
 }
